@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-AIPathPreviewComponent.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\Davide\thesisproject\ThesisProject\Intermediate\Build\Win64\x64\ThesisProjectEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.obj"
+"C:\Users\Davide\thesisproject\ThesisProject\Plugins\AIPathPreviewComponent\Intermediate\Build\Win64\x64\UnrealEditor\Development\AIPathPreviewComponent\Module.AIPathPreviewComponent.cpp.obj"
+"C:\Users\Davide\thesisproject\ThesisProject\Plugins\AIPathPreviewComponent\Intermediate\Build\Win64\x64\UnrealEditor\Development\AIPathPreviewComponent\Default.rc2.res"
+/OUT:"C:\Users\Davide\thesisproject\ThesisProject\Plugins\AIPathPreviewComponent\Intermediate\Build\Win64\x64\UnrealEditor\Development\AIPathPreviewComponent\UnrealEditor-AIPathPreviewComponent.lib"

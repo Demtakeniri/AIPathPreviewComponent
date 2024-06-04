@@ -1,0 +1,11 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.AIPathPreviewComponent.cpp.obj": [
+			"AIPathPreviewComponent.init.gen.cpp.obj",
+			"DummyClass.gen.cpp.obj",
+			"AIPathPreviewComponent.cpp.obj",
+			"DummyClass.cpp.obj"
+		]
+	}
+}
