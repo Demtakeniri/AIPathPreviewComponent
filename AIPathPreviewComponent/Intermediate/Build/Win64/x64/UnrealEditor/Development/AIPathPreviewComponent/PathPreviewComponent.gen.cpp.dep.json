@@ -1,0 +1,21 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\davide\\thesisproject\\thesisproject\\plugins\\aipathpreviewcomponent\\intermediate\\build\\win64\\unrealeditor\\inc\\aipathpreviewcomponent\\uht\\pathpreviewcomponent.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\davide\\thesisproject\\thesisproject\\intermediate\\build\\win64\\x64\\thesisprojecteditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\davide\\thesisproject\\thesisproject\\plugins\\aipathpreviewcomponent\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\aipathpreviewcomponent\\definitions.aipathpreviewcomponent.h",
+            "c:\\users\\davide\\thesisproject\\thesisproject\\plugins\\aipathpreviewcomponent\\source\\aipathpreviewcomponent\\public\\pathpreviewcomponent.h",
+            "c:\\users\\davide\\thesisproject\\thesisproject\\plugins\\aipathpreviewcomponent\\source\\aipathpreviewcomponent\\public\\pathpreviewactor.h",
+            "d:\\epic games\\ue_5.3\\engine\\plugins\\runtime\\proceduralmeshcomponent\\source\\proceduralmeshcomponent\\public\\proceduralmeshcomponent.h",
+            "d:\\epic games\\ue_5.3\\engine\\plugins\\runtime\\proceduralmeshcomponent\\intermediate\\build\\win64\\unrealeditor\\inc\\proceduralmeshcomponent\\uht\\proceduralmeshcomponent.generated.h",
+            "c:\\users\\davide\\thesisproject\\thesisproject\\plugins\\aipathpreviewcomponent\\source\\aipathpreviewcomponent\\public\\pathpreviewsettings.h",
+            "c:\\users\\davide\\thesisproject\\thesisproject\\plugins\\aipathpreviewcomponent\\intermediate\\build\\win64\\unrealeditor\\inc\\aipathpreviewcomponent\\uht\\pathpreviewsettings.generated.h",
+            "c:\\users\\davide\\thesisproject\\thesisproject\\plugins\\aipathpreviewcomponent\\intermediate\\build\\win64\\unrealeditor\\inc\\aipathpreviewcomponent\\uht\\pathpreviewactor.generated.h",
+            "c:\\users\\davide\\thesisproject\\thesisproject\\plugins\\aipathpreviewcomponent\\intermediate\\build\\win64\\unrealeditor\\inc\\aipathpreviewcomponent\\uht\\pathpreviewcomponent.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

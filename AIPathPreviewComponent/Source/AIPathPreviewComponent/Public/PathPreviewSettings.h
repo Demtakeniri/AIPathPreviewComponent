@@ -18,8 +18,17 @@ public:
 	/// </summary>
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool ConsiderDifficultTerrain;
+	/// <summary>
+	/// Collision channel needed to project the points on the ground. needed if height differences in your
+	/// game are natural and not handled with proxy links, make sure anything that is not walkable on ignores this channel.
+	/// </summary>
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TEnumAsByte<ECollisionChannel> GroundCollision;
+	/// <summary>
+	/// Collision channel needed for the difficult terrain actor to work. ignore if "ConsiderDifficultTerrain=false". 
+	/// </summary>
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TEnumAsByte<ECollisionChannel> DifficultTerrainCollision;
 	/// <summary>
 	/// Tick if height differences in your game are not "natural" and handled with nav proxys 
 	/// </summary>

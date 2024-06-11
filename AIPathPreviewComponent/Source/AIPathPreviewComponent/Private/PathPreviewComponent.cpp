@@ -14,6 +14,11 @@ void UPathPreviewComponent::CalculatePathAndShowPreview_Implementation(FVector S
 	}
 }
 
+void UPathPreviewComponent::ShowPreviewWithPoints_Implementation(const TArray<FVector>& InPoints)
+{
+	PathPreviewActor->ShowPathPreview(InPoints);
+}
+
 
 // Sets default values for this component's properties
 UPathPreviewComponent::UPathPreviewComponent()

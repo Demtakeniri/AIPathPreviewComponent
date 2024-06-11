@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\davide\\thesisproject\\thesisproject\\plugins\\aipathpreviewcomponent\\intermediate\\build\\win64\\unrealeditor\\inc\\aipathpreviewcomponent\\uht\\pathpreviewsettings.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\davide\\thesisproject\\thesisproject\\intermediate\\build\\win64\\x64\\thesisprojecteditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\davide\\thesisproject\\thesisproject\\plugins\\aipathpreviewcomponent\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\aipathpreviewcomponent\\definitions.aipathpreviewcomponent.h",
+            "c:\\users\\davide\\thesisproject\\thesisproject\\plugins\\aipathpreviewcomponent\\source\\aipathpreviewcomponent\\public\\pathpreviewsettings.h",
+            "c:\\users\\davide\\thesisproject\\thesisproject\\plugins\\aipathpreviewcomponent\\intermediate\\build\\win64\\unrealeditor\\inc\\aipathpreviewcomponent\\uht\\pathpreviewsettings.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

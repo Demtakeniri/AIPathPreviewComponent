@@ -222,7 +222,7 @@ void APathPreviewActor::PopulateUV1_Implementation(FVector Current, bool IsEdgeA
 {
 	auto World = GetWorld();
 	FHitResult hit;
-	World->LineTraceSingleByChannel(hit, Current + FVector(0, 0, 300), Current, ECollisionChannel::ECC_GameTraceChannel1);
+	World->LineTraceSingleByChannel(hit, Current + FVector(0, 0, 300), Current, Settings->DifficultTerrainCollision);
 	if (hit.bBlockingHit)
 	{
 		auto other = Cast<ADifficultTerrainCollision>(hit.GetActor());

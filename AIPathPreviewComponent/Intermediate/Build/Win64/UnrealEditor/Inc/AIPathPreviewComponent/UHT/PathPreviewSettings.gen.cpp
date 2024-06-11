@@ -40,6 +40,10 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewSettings() {}
 #endif
 		static const UECodeGen_Private::FBytePropertyParams NewProp_GroundCollision;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DifficultTerrainCollision_MetaData[];
+#endif
+		static const UECodeGen_Private::FBytePropertyParams NewProp_DifficultTerrainCollision;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ConsiderNavLinkProxys_MetaData[];
 #endif
 		static void NewProp_ConsiderNavLinkProxys_SetBit(void* Obj);
@@ -104,10 +108,29 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewSettings() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_GroundCollision_MetaData[] = {
 		{ "Category", "PathPreviewSettings" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/// <summary>\n/// Collision channel needed to project the points on the ground. needed if height differences in your\n/// game are natural and not handled with proxy links, make sure anything that is not walkable on ignores this channel.\n/// </summary>\n" },
+#endif
 		{ "ModuleRelativePath", "Public/PathPreviewSettings.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "<summary>\nCollision channel needed to project the points on the ground. needed if height differences in your\ngame are natural and not handled with proxy links, make sure anything that is not walkable on ignores this channel.\n</summary>" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_GroundCollision = { "GroundCollision", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPathPreviewSettings, GroundCollision), Z_Construct_UEnum_Engine_ECollisionChannel, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_GroundCollision_MetaData), Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_GroundCollision_MetaData) }; // 1822723181
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_DifficultTerrainCollision_MetaData[] = {
+		{ "Category", "PathPreviewSettings" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/// <summary>\n/// Collision channel needed for the difficult terrain actor to work. ignore if \"ConsiderDifficultTerrain=false\". \n/// </summary>\n" },
+#endif
+		{ "ModuleRelativePath", "Public/PathPreviewSettings.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "<summary>\nCollision channel needed for the difficult terrain actor to work. ignore if \"ConsiderDifficultTerrain=false\".\n</summary>" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_DifficultTerrainCollision = { "DifficultTerrainCollision", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPathPreviewSettings, DifficultTerrainCollision), Z_Construct_UEnum_Engine_ECollisionChannel, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_DifficultTerrainCollision_MetaData), Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_DifficultTerrainCollision_MetaData) }; // 1822723181
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_ConsiderNavLinkProxys_MetaData[] = {
 		{ "Category", "PathPreviewSettings" },
@@ -218,6 +241,7 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewSettings() {}
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UPathPreviewSettings_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_ConsiderDifficultTerrain,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_GroundCollision,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_DifficultTerrainCollision,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_ConsiderNavLinkProxys,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_ShouldSmooth,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_SmoothingFactor,
@@ -265,9 +289,9 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewSettings() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewSettings_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPathPreviewSettings, UPathPreviewSettings::StaticClass, TEXT("UPathPreviewSettings"), &Z_Registration_Info_UClass_UPathPreviewSettings, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPathPreviewSettings), 3930146550U) },
+		{ Z_Construct_UClass_UPathPreviewSettings, UPathPreviewSettings::StaticClass, TEXT("UPathPreviewSettings"), &Z_Registration_Info_UClass_UPathPreviewSettings, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPathPreviewSettings), 3250244804U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewSettings_h_1686973252(TEXT("/Script/AIPathPreviewComponent"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewSettings_h_184485318(TEXT("/Script/AIPathPreviewComponent"),
 		Z_CompiledInDeferFile_FID_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewSettings_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewSettings_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

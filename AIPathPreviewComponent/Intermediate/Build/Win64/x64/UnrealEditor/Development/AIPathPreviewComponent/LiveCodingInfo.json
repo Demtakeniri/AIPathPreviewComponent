@@ -2,6 +2,12 @@
 	"RemapUnityFiles": 
 	{
 		"Module.AIPathPreviewComponent.cpp.obj": [
+			"AIPathPreviewComponent.cpp.obj",
+			"DifficultTerrainCollision.cpp.obj",
+			"DummyClass.cpp.obj",
+			"PathingFunctionLibrary.cpp.obj",
+			"PathPreviewActor.cpp.obj",
+			"ProceduralPath.cpp.obj",
 			"AIPathPreviewComponent.init.gen.cpp.obj",
 			"DifficultTerrainCollision.gen.cpp.obj",
 			"DummyClass.gen.cpp.obj",
@@ -10,13 +16,7 @@
 			"PathPreviewComponent.gen.cpp.obj",
 			"PathPreviewSettings.gen.cpp.obj",
 			"ProceduralPath.gen.cpp.obj",
-			"AIPathPreviewComponent.cpp.obj",
-			"DifficultTerrainCollision.cpp.obj",
-			"DummyClass.cpp.obj",
-			"PathingFunctionLibrary.cpp.obj",
-			"PathPreviewActor.cpp.obj",
-			"PathPreviewComponent.cpp.obj",
-			"ProceduralPath.cpp.obj"
+			"PathPreviewComponent.cpp.obj"
 		]
 	}
 }

@@ -31,6 +31,13 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void CalculatePathAndShowPreview(FVector Start, FVector End);
 		void CalculatePathAndShowPreview_Implementation(FVector Start, FVector End);
+	/// <summary>
+	/// Function to use instead of CalculateAndShowPreview if you already have the array of points.
+	/// </summary>
+	/// <param name="InPoints">The array of points</param>
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+		void ShowPreviewWithPoints(const TArray<FVector>& InPoints);
+		void ShowPreviewWithPoints_Implementation(const TArray<FVector>& InPoints);
 	// Sets default values for this component's properties
 	UPathPreviewComponent();
 
