@@ -164,13 +164,26 @@ void APathPreviewActor::MakeTriangles()
 void APathPreviewActor::ProjectPointsOnGround_Implementation()
 {
 	auto World = GetWorld();
-	for (int i = 1; i < PathPoints.Num(); i++)
+	for (int i = 0; i < PathPoints.Num(); i++)
 	{
+		if (i == 0) 
+		{
+			FVector Current = PathPoints[i];
+			FHitResult Hit;
+			FVector TraceStartPoint = FVector(Current.X, Current.Y, Current.Z);
+			World->LineTraceSingleByChannel(Hit, TraceStartPoint + (FVector::UpVector * 100), TraceStartPoint + (FVector::DownVector * 100), Settings->GroundCollision);
+			if (Hit.bBlockingHit)
+			{
+				PathPoints[i] = FVector(Hit.ImpactPoint.X, Hit.ImpactPoint.Y, Hit.ImpactPoint.Z + 0.05f);
+			}
+			continue;
+		}
 		FVector Current = PathPoints[i];
 		FVector Previous = PathPoints[i - 1];
 		if (FVector2D(Current.X, Current.Y).Equals(FVector2D(Previous.X, Previous.Y), 1)) continue;
 		FHitResult Hit;
-		World->LineTraceSingleByChannel(Hit, Current + (FVector::UpVector * 100000), Current + (FVector::DownVector * 100000), Settings->GroundCollision);
+		FVector TraceStartPoint = FVector(Current.X, Current.Y, Previous.Z);
+		World->LineTraceSingleByChannel(Hit, TraceStartPoint + (FVector::UpVector * 100), TraceStartPoint + (FVector::DownVector * 100), Settings->GroundCollision);
 		if(Hit.bBlockingHit)
 		{
 			PathPoints[i] = FVector(Hit.ImpactPoint.X, Hit.ImpactPoint.Y, Hit.ImpactPoint.Z + 0.05f);
@@ -193,10 +206,13 @@ void APathPreviewActor::GenerateVertices_Implementation()
 	{
 		UPathingFunctionLibrary::SmoothPathPoints(PathPoints, 2, Settings->PointLerpFactor, Settings->SmoothingFactor, PathPoints);
 	}
-	if(!Settings->ConsiderNavLinkProxys)
-	{
-		ProjectPointsOnGround();
-	}
+	//If you're having problems with the displaying of the path while using both NavLinkProxys and natural height differences, consider choosing just
+	// one of them, uncomment below and get rid of the "ProjectPointsOnGround()" function call below the commented brackets.
+	//if(!Settings->ConsiderNavLinkProxys)
+	//{
+	//	ProjectPointsOnGround();
+	//}
+	ProjectPointsOnGround();
 	CalculateUpVectors();
 	CalculateVertices();
 	MakeTriangles();

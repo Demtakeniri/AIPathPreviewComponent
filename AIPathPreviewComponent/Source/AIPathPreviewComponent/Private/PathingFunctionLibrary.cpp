@@ -38,14 +38,14 @@ void UPathingFunctionLibrary::SmoothPathPoints(const TArray<FVector>& Points, in
 void UPathingFunctionLibrary::CheckForHeightDifferences(const TArray<FVector>& InPoints, TArray<FVector>& OutPoints, UWorld* World)
 {   
     OutPoints = InPoints;
-    for (int i = 0; i < InPoints.Num(); i++)
+    for (int i = 1; i < InPoints.Num(); i++)
     {
-        if (!(i + 1 <= InPoints.Num() - 1)) return;
+        if (!(i + 1 < InPoints.Num() - 1)) return;
         FVector Current = InPoints[i];
         FVector Next = InPoints[i + 1];
         FHitResult Hit;
         World->LineTraceSingleByChannel(Hit, Current, Next, ECollisionChannel::ECC_Visibility);
-        if (Next.Z > Current.Z && Hit.bBlockingHit) 
+        if (Next.Z > Current.Z && Hit.bBlockingHit && FVector::Dist2D(Current, Next) < 300)
         {
             OutPoints.Insert(FVector(Current.X,Current.Y,Next.Z), i + 1);
             continue;
@@ -54,7 +54,7 @@ void UPathingFunctionLibrary::CheckForHeightDifferences(const TArray<FVector>& I
         {
             FVector2D Current2D(Current.X, Current.Y);
             FVector2D Next2D(Next.X, Next.Y);
-            if (Next.Z < Current.Z && Current2D != Next2D && Hit.bBlockingHit)
+            if (Next.Z < Current.Z && Current2D != Next2D && Hit.bBlockingHit && FVector::Dist2D(Current,Next) < 300)
             {
                 OutPoints.Insert(FVector(Next.X, Next.Y, Current.Z), i + 1);
             }
