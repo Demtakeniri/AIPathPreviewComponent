@@ -191,7 +191,7 @@ void APathPreviewActor::ProjectPointsOnGround_Implementation()
 	}
 }
 
-void APathPreviewActor::GenerateVertices_Implementation()
+void APathPreviewActor::GenerateVerticesAndBuildMesh_Implementation()
 {
 	auto World = GetWorld();
 	Vertices.Empty();
@@ -225,7 +225,7 @@ void APathPreviewActor::ShowPathPreview_Implementation(const TArray<FVector>& In
 {
 	ClearMesh();
 	PathPoints = InPoints;
-	GenerateVertices();
+	GenerateVerticesAndBuildMesh();
 }
 
 void APathPreviewActor::ClearMesh_Implementation()

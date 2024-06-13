@@ -42,11 +42,11 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 		P_THIS->ShowPathPreview_Implementation(Z_Param_Out_InPoints);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(APathPreviewActor::execGenerateVertices)
+	DEFINE_FUNCTION(APathPreviewActor::execGenerateVerticesAndBuildMesh)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->GenerateVertices_Implementation();
+		P_THIS->GenerateVerticesAndBuildMesh_Implementation();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(APathPreviewActor::execProjectPointsOnGround)
@@ -91,10 +91,10 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_APathPreviewActor_ClearMesh),NULL);
 	}
-	static FName NAME_APathPreviewActor_GenerateVertices = FName(TEXT("GenerateVertices"));
-	void APathPreviewActor::GenerateVertices()
+	static FName NAME_APathPreviewActor_GenerateVerticesAndBuildMesh = FName(TEXT("GenerateVerticesAndBuildMesh"));
+	void APathPreviewActor::GenerateVerticesAndBuildMesh()
 	{
-		ProcessEvent(FindFunctionChecked(NAME_APathPreviewActor_GenerateVertices),NULL);
+		ProcessEvent(FindFunctionChecked(NAME_APathPreviewActor_GenerateVerticesAndBuildMesh),NULL);
 	}
 	static FName NAME_APathPreviewActor_PopulateUV1 = FName(TEXT("PopulateUV1"));
 	void APathPreviewActor::PopulateUV1(FVector Current, bool IsEdgeArray)
@@ -123,7 +123,7 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 			{ "CalculateUpVectors", &APathPreviewActor::execCalculateUpVectors },
 			{ "CalculateVertices", &APathPreviewActor::execCalculateVertices },
 			{ "ClearMesh", &APathPreviewActor::execClearMesh },
-			{ "GenerateVertices", &APathPreviewActor::execGenerateVertices },
+			{ "GenerateVerticesAndBuildMesh", &APathPreviewActor::execGenerateVerticesAndBuildMesh },
 			{ "MakeTriangles", &APathPreviewActor::execMakeTriangles },
 			{ "PopulateUV1", &APathPreviewActor::execPopulateUV1 },
 			{ "ProjectPointsOnGround", &APathPreviewActor::execProjectPointsOnGround },
@@ -215,7 +215,7 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_APathPreviewActor_GenerateVertices_Statics
+	struct Z_Construct_UFunction_APathPreviewActor_GenerateVerticesAndBuildMesh_Statics
 	{
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -223,7 +223,7 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APathPreviewActor_GenerateVertices_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APathPreviewActor_GenerateVerticesAndBuildMesh_Statics::Function_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/// <summary>\n/// Function that generate the whole procedural mesh section, calling all other function in order.\n/// </summary>\n" },
 #endif
@@ -233,13 +233,13 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 #endif
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APathPreviewActor_GenerateVertices_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APathPreviewActor, nullptr, "GenerateVertices", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APathPreviewActor_GenerateVertices_Statics::Function_MetaDataParams), Z_Construct_UFunction_APathPreviewActor_GenerateVertices_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_APathPreviewActor_GenerateVertices()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APathPreviewActor_GenerateVerticesAndBuildMesh_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APathPreviewActor, nullptr, "GenerateVerticesAndBuildMesh", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APathPreviewActor_GenerateVerticesAndBuildMesh_Statics::Function_MetaDataParams), Z_Construct_UFunction_APathPreviewActor_GenerateVerticesAndBuildMesh_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_APathPreviewActor_GenerateVerticesAndBuildMesh()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APathPreviewActor_GenerateVertices_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APathPreviewActor_GenerateVerticesAndBuildMesh_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -458,7 +458,7 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 		{ &Z_Construct_UFunction_APathPreviewActor_CalculateUpVectors, "CalculateUpVectors" }, // 1309223744
 		{ &Z_Construct_UFunction_APathPreviewActor_CalculateVertices, "CalculateVertices" }, // 261018937
 		{ &Z_Construct_UFunction_APathPreviewActor_ClearMesh, "ClearMesh" }, // 1737499487
-		{ &Z_Construct_UFunction_APathPreviewActor_GenerateVertices, "GenerateVertices" }, // 275601429
+		{ &Z_Construct_UFunction_APathPreviewActor_GenerateVerticesAndBuildMesh, "GenerateVerticesAndBuildMesh" }, // 3549326622
 		{ &Z_Construct_UFunction_APathPreviewActor_MakeTriangles, "MakeTriangles" }, // 4119772272
 		{ &Z_Construct_UFunction_APathPreviewActor_PopulateUV1, "PopulateUV1" }, // 3431043789
 		{ &Z_Construct_UFunction_APathPreviewActor_ProjectPointsOnGround, "ProjectPointsOnGround" }, // 3666093124
@@ -593,15 +593,15 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(APathPreviewActor);
 	APathPreviewActor::~APathPreviewActor() {}
-	struct Z_CompiledInDeferFile_FID_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APathPreviewActor, APathPreviewActor::StaticClass, TEXT("APathPreviewActor"), &Z_Registration_Info_UClass_APathPreviewActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APathPreviewActor), 647756113U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_APathPreviewActor, APathPreviewActor::StaticClass, TEXT("APathPreviewActor"), &Z_Registration_Info_UClass_APathPreviewActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APathPreviewActor), 1113214821U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_917545562(TEXT("/Script/AIPathPreviewComponent"),
-		Z_CompiledInDeferFile_FID_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_3613074364(TEXT("/Script/AIPathPreviewComponent"),
+		Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

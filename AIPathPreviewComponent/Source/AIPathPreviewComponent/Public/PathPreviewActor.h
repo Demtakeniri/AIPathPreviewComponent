@@ -64,8 +64,8 @@ public:
 	/// Function that generate the whole procedural mesh section, calling all other function in order.
 	/// </summary>
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-		void GenerateVertices();
-		void GenerateVertices_Implementation();
+		void GenerateVerticesAndBuildMesh();
+		void GenerateVerticesAndBuildMesh_Implementation();
 	/// <summary>
 	/// The function that Clears the mesh and sets the PathPoints before calling "GenerateVertices()".
 	/// </summary>
