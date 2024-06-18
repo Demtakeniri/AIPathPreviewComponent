@@ -22,9 +22,10 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 	{
 		P_GET_STRUCT(FVector,Z_Param_Current);
 		P_GET_UBOOL(Z_Param_IsEdgeArray);
+		P_GET_UBOOL(Z_Param_ExeedsMovementLimit);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->PopulateUV1_Implementation(Z_Param_Current,Z_Param_IsEdgeArray);
+		P_THIS->PopulateUV1_Implementation(Z_Param_Current,Z_Param_IsEdgeArray,Z_Param_ExeedsMovementLimit);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(APathPreviewActor::execClearMesh)
@@ -81,6 +82,7 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 	{
 		FVector Current;
 		bool IsEdgeArray;
+		bool ExeedsMovementLimit;
 	};
 	struct PathPreviewActor_eventShowPathPreview_Parms
 	{
@@ -97,11 +99,12 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 		ProcessEvent(FindFunctionChecked(NAME_APathPreviewActor_GenerateVerticesAndBuildMesh),NULL);
 	}
 	static FName NAME_APathPreviewActor_PopulateUV1 = FName(TEXT("PopulateUV1"));
-	void APathPreviewActor::PopulateUV1(FVector Current, bool IsEdgeArray)
+	void APathPreviewActor::PopulateUV1(FVector Current, bool IsEdgeArray, bool ExeedsMovementLimit)
 	{
 		PathPreviewActor_eventPopulateUV1_Parms Parms;
 		Parms.Current=Current;
 		Parms.IsEdgeArray=IsEdgeArray ? true : false;
+		Parms.ExeedsMovementLimit=ExeedsMovementLimit ? true : false;
 		ProcessEvent(FindFunctionChecked(NAME_APathPreviewActor_PopulateUV1),&Parms);
 	}
 	static FName NAME_APathPreviewActor_ProjectPointsOnGround = FName(TEXT("ProjectPointsOnGround"));
@@ -276,6 +279,8 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 		static const UECodeGen_Private::FStructPropertyParams NewProp_Current;
 		static void NewProp_IsEdgeArray_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsEdgeArray;
+		static void NewProp_ExeedsMovementLimit_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ExeedsMovementLimit;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -288,9 +293,15 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 		((PathPreviewActor_eventPopulateUV1_Parms*)Obj)->IsEdgeArray = 1;
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_APathPreviewActor_PopulateUV1_Statics::NewProp_IsEdgeArray = { "IsEdgeArray", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(PathPreviewActor_eventPopulateUV1_Parms), &Z_Construct_UFunction_APathPreviewActor_PopulateUV1_Statics::NewProp_IsEdgeArray_SetBit, METADATA_PARAMS(0, nullptr) };
+	void Z_Construct_UFunction_APathPreviewActor_PopulateUV1_Statics::NewProp_ExeedsMovementLimit_SetBit(void* Obj)
+	{
+		((PathPreviewActor_eventPopulateUV1_Parms*)Obj)->ExeedsMovementLimit = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_APathPreviewActor_PopulateUV1_Statics::NewProp_ExeedsMovementLimit = { "ExeedsMovementLimit", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(PathPreviewActor_eventPopulateUV1_Parms), &Z_Construct_UFunction_APathPreviewActor_PopulateUV1_Statics::NewProp_ExeedsMovementLimit_SetBit, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APathPreviewActor_PopulateUV1_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APathPreviewActor_PopulateUV1_Statics::NewProp_Current,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APathPreviewActor_PopulateUV1_Statics::NewProp_IsEdgeArray,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APathPreviewActor_PopulateUV1_Statics::NewProp_ExeedsMovementLimit,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APathPreviewActor_PopulateUV1_Statics::Function_MetaDataParams[] = {
@@ -460,7 +471,7 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 		{ &Z_Construct_UFunction_APathPreviewActor_ClearMesh, "ClearMesh" }, // 1737499487
 		{ &Z_Construct_UFunction_APathPreviewActor_GenerateVerticesAndBuildMesh, "GenerateVerticesAndBuildMesh" }, // 3549326622
 		{ &Z_Construct_UFunction_APathPreviewActor_MakeTriangles, "MakeTriangles" }, // 4119772272
-		{ &Z_Construct_UFunction_APathPreviewActor_PopulateUV1, "PopulateUV1" }, // 3431043789
+		{ &Z_Construct_UFunction_APathPreviewActor_PopulateUV1, "PopulateUV1" }, // 98975615
 		{ &Z_Construct_UFunction_APathPreviewActor_ProjectPointsOnGround, "ProjectPointsOnGround" }, // 3666093124
 		{ &Z_Construct_UFunction_APathPreviewActor_ShowPathPreview, "ShowPathPreview" }, // 4178404819
 	};
@@ -598,9 +609,9 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewActor() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APathPreviewActor, APathPreviewActor::StaticClass, TEXT("APathPreviewActor"), &Z_Registration_Info_UClass_APathPreviewActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APathPreviewActor), 1113214821U) },
+		{ Z_Construct_UClass_APathPreviewActor, APathPreviewActor::StaticClass, TEXT("APathPreviewActor"), &Z_Registration_Info_UClass_APathPreviewActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APathPreviewActor), 1359904664U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_3613074364(TEXT("/Script/AIPathPreviewComponent"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_1511338396(TEXT("/Script/AIPathPreviewComponent"),
 		Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewActor_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

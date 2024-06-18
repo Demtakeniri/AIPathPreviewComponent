@@ -93,8 +93,8 @@ public:
 	/// bool to differentiate between mid-array and edge-array
 	/// </param>
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-		void PopulateUV1(FVector Current, bool IsEdgeArray);
-		void PopulateUV1_Implementation(FVector Current, bool IsEdgeArray);
+		void PopulateUV1(FVector Current, bool IsEdgeArray, bool ExeedsMovementLimit);
+		void PopulateUV1_Implementation(FVector Current, bool IsEdgeArray, bool ExeedsMovementLimit);
 
 	void Tick(float DeltaTime) override;
 };

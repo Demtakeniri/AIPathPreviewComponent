@@ -73,6 +73,7 @@ void APathPreviewActor::CalculateUpVectors()
 
 void APathPreviewActor::CalculateVertices()
 {
+	float Lenght = 0;
 	auto World = GetWorld();
 	FVector LastCrossProd;
 	for (int i = 0; i < PathPoints.Num(); i++)
@@ -82,6 +83,7 @@ void APathPreviewActor::CalculateVertices()
 		if(i + 1 < PathPoints.Num())
 		{
 			FVector Next = PathPoints[i + 1];
+			Lenght = Lenght + (FVector::Dist(Current, Next) / 100);
 			FVector Dir = Next - Current;
 			Dir.Normalize();
 			if(i <= CrossUpVectors.Num() - 1)
@@ -101,7 +103,7 @@ void APathPreviewActor::CalculateVertices()
 				//Populate UV1 array if the mesh should consider difficult terrain
 				if (Settings->ConsiderDifficultTerrain) 
 				{
-					PopulateUV1(Current, true);
+					PopulateUV1(Current, true, Lenght > Settings->MaxMovement);
 				}
 			}
 			else
@@ -118,7 +120,7 @@ void APathPreviewActor::CalculateVertices()
 				//Populate UV1 array if the mesh should consider difficult terrain
 				if (Settings->ConsiderDifficultTerrain)
 				{
-					PopulateUV1(Current, false);
+					PopulateUV1(Current, false, Lenght > Settings->MaxMovement);
 				}
 				
 			}
@@ -135,7 +137,7 @@ void APathPreviewActor::CalculateVertices()
 			//Populate UV1 array if the mesh should consider difficult terrain
 			if (Settings->ConsiderDifficultTerrain)
 			{
-				PopulateUV1(Current, true);
+				PopulateUV1(Current, true, Lenght > Settings->MaxMovement);
 			}
 		}
 	}
@@ -234,8 +236,20 @@ void APathPreviewActor::ClearMesh_Implementation()
 }
 
 
-void APathPreviewActor::PopulateUV1_Implementation(FVector Current, bool IsEdgeArray)
+void APathPreviewActor::PopulateUV1_Implementation(FVector Current, bool IsEdgeArray, bool ExeedsMovementLimit)
 {
+	if(Settings->HasMaxMovement)
+	{
+		if(ExeedsMovementLimit)
+		{
+			UV1.Add(FVector2D(1, 0));
+			UV1.Add(FVector2D(1, 0));
+			if (IsEdgeArray) return;
+			UV1.Add(FVector2D(1, 0));
+			UV1.Add(FVector2D(1, 0));
+			return;
+		}
+	}
 	auto World = GetWorld();
 	FHitResult hit;
 	World->LineTraceSingleByChannel(hit, Current + FVector(0, 0, 300), Current, Settings->DifficultTerrainCollision);

@@ -68,4 +68,14 @@ public:
 	/// </summary>
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Mesh Look")
 		UMaterialInstance* MeshMaterial;
+	/// <summary>
+	/// Tick if your character has limited movement (WIP)
+	/// </summary>
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Mesh Look")
+		bool HasMaxMovement;
+	/// <summary>
+	/// How much movement does your character have expressed in meters (WIP)
+	/// </summary>
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Mesh Look")
+		float MaxMovement;
 };

@@ -73,6 +73,15 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewSettings() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MeshMaterial_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_MeshMaterial;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_HasMaxMovement_MetaData[];
+#endif
+		static void NewProp_HasMaxMovement_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_HasMaxMovement;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MaxMovement_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_MaxMovement;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -238,6 +247,36 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewSettings() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_MeshMaterial = { "MeshMaterial", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPathPreviewSettings, MeshMaterial), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_MeshMaterial_MetaData), Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_MeshMaterial_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_HasMaxMovement_MetaData[] = {
+		{ "Category", "Mesh Look" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/// <summary>\n/// Tick if your character has limited movement (WIP)\n/// </summary>\n" },
+#endif
+		{ "ModuleRelativePath", "Public/PathPreviewSettings.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "<summary>\nTick if your character has limited movement (WIP)\n</summary>" },
+#endif
+	};
+#endif
+	void Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_HasMaxMovement_SetBit(void* Obj)
+	{
+		((UPathPreviewSettings*)Obj)->HasMaxMovement = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_HasMaxMovement = { "HasMaxMovement", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UPathPreviewSettings), &Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_HasMaxMovement_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_HasMaxMovement_MetaData), Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_HasMaxMovement_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_MaxMovement_MetaData[] = {
+		{ "Category", "Mesh Look" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/// <summary>\n/// How much movement does your character have (WIP)\n/// </summary>\n" },
+#endif
+		{ "ModuleRelativePath", "Public/PathPreviewSettings.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "<summary>\nHow much movement does your character have (WIP)\n</summary>" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_MaxMovement = { "MaxMovement", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPathPreviewSettings, MaxMovement), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_MaxMovement_MetaData), Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_MaxMovement_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UPathPreviewSettings_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_ConsiderDifficultTerrain,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_GroundCollision,
@@ -249,6 +288,8 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewSettings() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_LineWidth,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_MaxSectionLenght,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_MeshMaterial,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_HasMaxMovement,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPathPreviewSettings_Statics::NewProp_MaxMovement,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UPathPreviewSettings_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UPathPreviewSettings>::IsAbstract,
@@ -289,9 +330,9 @@ void EmptyLinkFunctionForGeneratedCodePathPreviewSettings() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewSettings_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPathPreviewSettings, UPathPreviewSettings::StaticClass, TEXT("UPathPreviewSettings"), &Z_Registration_Info_UClass_UPathPreviewSettings, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPathPreviewSettings), 3250244804U) },
+		{ Z_Construct_UClass_UPathPreviewSettings, UPathPreviewSettings::StaticClass, TEXT("UPathPreviewSettings"), &Z_Registration_Info_UClass_UPathPreviewSettings, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPathPreviewSettings), 2206154491U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewSettings_h_184485318(TEXT("/Script/AIPathPreviewComponent"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewSettings_h_1309546554(TEXT("/Script/AIPathPreviewComponent"),
 		Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewSettings_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_davi__thesisproject_ThesisProject_Plugins_AIPathPreviewComponent_Source_AIPathPreviewComponent_Public_PathPreviewSettings_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
