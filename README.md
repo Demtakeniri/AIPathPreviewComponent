@@ -1,6 +1,8 @@
 # AIPathPreviewComponent
 Plugin for Unreal Engine 5 to display the pathing of AIs in 3D.
 
+(This plugin is still in development, feel free to report any bug you find and give feedbacks!)
+
 # How to import into an Unreal Engine 5 project
 
 In order to add the tool to an existing project you can:
