@@ -1,6 +1,8 @@
 # AIPathPreviewComponent
 Plugin for Unreal Engine 5 to display the pathing of AIs in 3D.
 
+<img src="https://github.com/Demtakeniri/AIPathPreviewComponentImages/blob/main/ThesisGif_Preview.gif" width="500">
+
 (This plugin is still in development, feel free to report any bug you find and give feedbacks!)
 
 # How to import into an Unreal Engine 5 project
@@ -90,4 +92,4 @@ You can select one of the two provided types of difficult terrain which will aff
 
 ## How to passively use the tool (for debug purposes)
 
-In order to use the tool for debug purposes, just drag inside the scene the **"BP_AutoPathPreviewManager"** and it will automatically handle the showing of all active AIs' paths along with some useful infos about the pathing.
+In order to use the tool for debug purposes, just drag inside the scene the **"BP_AutoPathPreviewManager"** and it will automatically handle the showing of all active AIs' paths along with some useful infos about pathings.
